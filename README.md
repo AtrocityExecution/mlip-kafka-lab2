@@ -138,35 +138,15 @@ Follow the TODO blocks in the starter scripts/notebook.
 
 ### Producer Mode — Write Data
 
-- Set bootstrap servers:
-  ```
-  localhost:<local_port>
-  ```
+![Kafka](kafka1.png)
 
-- Add **2–3 cities** as messages
-- Run producer
-
-Reference:  
-[KafkaProducer Documentation](https://kafka-python.readthedocs.io/)
+![Kafka](kafka2.png)
 
 ---
 
 ### Consumer Mode — Read Data
 
-Configure:
-
-- Topic name
-- Bootstrap servers
-- Group ID
-
-Verify output in:
-
-```
-Kafka_log.csv
-```
-
-Reference:  
-[KafkaConsumer Documentation](https://kafka-python.readthedocs.io/)
+![Kafka](kafka5.png)
 
 ---
 
@@ -175,64 +155,15 @@ Reference:
 **Topic** — Named stream of records split into partitions  
 **Offset** — Monotonically increasing position within a partition  
 **Continuity** — Consumers resume from last committed offset after restart
+**Group ID** — us-cities
 
 ---
 
 ## 🛠 Using Kafka CLI Tools — kcat
 
-### Install
+![Kafka](kafka3.png)
+![Kafka](kafka4.png)
 
-**macOS**
-
-```bash
-brew install kcat
-```
-
-**Ubuntu**
-
-```bash
-apt-get install kcat
-```
-
-Windows setup is complex — pair with macOS/Linux during recitation.
-
----
-
-### Consume from Beginning
-
-```bash
-kcat -b localhost:<local_port> -t <your_topic> -C -o beginning -q
-```
-
----
-
-### Useful Commands
-
-List metadata:
-
-```bash
-kcat -b localhost:<local_port> -L
-```
-
-Produce test messages:
-
-```bash
-seq 1 5 | kcat -b localhost:<local_port> -t <your_topic>
-```
-
----
-
-## 🎬 Optional Practice
-
-```bash
-kcat -b localhost:9092 -L
-```
-
-If `movielog` topic exists:
-
-```bash
-kcat -b localhost:9092 -t movielog -C -o beginning
-```
 
 ---
 
